@@ -16,6 +16,7 @@
       }
     }
   }
+
 </script>
 
 <template>
@@ -25,6 +26,9 @@
     <Footer />
   </div>
 </template>
+
+
+
 <style>
   .main-container{
     min-height: 250px;

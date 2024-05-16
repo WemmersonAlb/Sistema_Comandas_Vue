@@ -25,4 +25,9 @@ export default {
         background-color: #222;
         padding: 20px 40px;
     }
+    @media (min-width: 1600px){
+        #main-bunner{
+            background-position: 0 -500px;
+        }
+    }
 </style>

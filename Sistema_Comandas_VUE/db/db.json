@@ -1,81 +1,170 @@
 {
-    "ingredientes": {
-      "paes": [
-        {
-          "id": 1,
-          "tipo": "Italiano Branco"
-        },
-        {
-          "id": 2,
-          "tipo": "3 Queijos"
-        },
-        {
-          "id": 3,
-          "tipo": "Parmesão e Orégano"
-        },
-        {
-          "id": 4,
-          "tipo": "Integral"
-        }
-      ],
-      "carnes": [
-        {
-          "id": 1,
-          "tipo": "Maminha"
-        },
-        {
-          "id": 2,
-          "tipo": "Alcatra"
-        },
-        {
-          "id": 3,
-          "tipo": "Picanha"
-        },
-        {
-          "id": 4,
-          "tipo": "Veggie burger"
-        }
-      ],
-      "opcionais": [
-        {
-          "id": 1,
-          "tipo": "Bacon"
-        },
-        {
-          "id": 2,
-          "tipo": "Cheddar"
-        },
-        {
-          "id": 3,
-          "tipo": "Salame"
-        },
-        {
-          "id": 4,
-          "tipo": "Tomate"
-        },
-        {
-          "id": 4,
-          "tipo": "Cebola roxa"
-        },
-        {
-          "id": 4,
-          "tipo": "Pepino"
-        }
-      ]
-    },
-    "status": [
+  "ingredientes": {
+    "paes": [
       {
         "id": 1,
-        "tipo": "Solicitado"
+        "tipo": "Italiano Branco"
       },
       {
         "id": 2,
-        "tipo": "Em produção"
+        "tipo": "3 Queijos"
       },
       {
         "id": 3,
-        "tipo": "Finalizado"
+        "tipo": "Parmesão e Orégano"
+      },
+      {
+        "id": 4,
+        "tipo": "Integral"
       }
     ],
-    "burgers": []
-  }
+    "carnes": [
+      {
+        "id": 1,
+        "tipo": "Maminha"
+      },
+      {
+        "id": 2,
+        "tipo": "Alcatra"
+      },
+      {
+        "id": 3,
+        "tipo": "Picanha"
+      },
+      {
+        "id": 4,
+        "tipo": "Veggie burger"
+      }
+    ],
+    "opcionais": [
+      {
+        "id": 1,
+        "tipo": "Bacon"
+      },
+      {
+        "id": 2,
+        "tipo": "Cheddar"
+      },
+      {
+        "id": 3,
+        "tipo": "Salame"
+      },
+      {
+        "id": 4,
+        "tipo": "Tomate"
+      },
+      {
+        "id": 4,
+        "tipo": "Cebola roxa"
+      },
+      {
+        "id": 4,
+        "tipo": "Pepino"
+      }
+    ]
+  },
+  "status": [
+    {
+      "id": "1",
+      "tipo": "Solicitado"
+    },
+    {
+      "id": "2",
+      "tipo": "Em produção"
+    },
+    {
+      "id": "3",
+      "tipo": "Finalizado"
+    }
+  ],
+  "burgers": [
+    {
+      "id": "bc88",
+      "nome": "adfafda",
+      "carne": "Picanha",
+      "pao": "3 Queijos",
+      "opcionais": [
+        "Bacon",
+        "Cheddar"
+      ],
+      "status": "Solicitado"
+    },
+    {
+      "id": "0340",
+      "nome": "sgdhs",
+      "carne": "Picanha",
+      "pao": "Italiano Branco",
+      "opcionais": [
+        "Cheddar"
+      ],
+      "status": "Solicitado"
+    },
+    {
+      "id": "eb7b",
+      "nome": "dghdghdgh",
+      "carne": "Maminha",
+      "pao": "3 Queijos",
+      "opcionais": [
+        "Cheddar",
+        "Pepino",
+        "Cebola roxa"
+      ],
+      "status": "Solicitado"
+    },
+    {
+      "id": "5957",
+      "nome": "Wemmerson",
+      "carne": "Picanha",
+      "pao": "3 Queijos",
+      "opcionais": [
+        "Bacon",
+        "Salame",
+        "Cebola roxa",
+        "Tomate",
+        "Cheddar"
+      ],
+      "status": "Solicitado"
+    },
+    {
+      "id": "200d",
+      "nome": "Wemmerson",
+      "carne": "Maminha",
+      "pao": "Italiano Branco",
+      "opcionais": [
+        "Tomate",
+        "Pepino"
+      ],
+      "status": "Solicitado"
+    },
+    {
+      "id": "3433",
+      "nome": "sfg",
+      "carne": "Alcatra",
+      "pao": "Italiano Branco",
+      "opcionais": [
+        "Pepino"
+      ],
+      "status": "Solicitado"
+    },
+    {
+      "id": "5272",
+      "nome": "adf",
+      "carne": "Picanha",
+      "pao": "Italiano Branco",
+      "opcionais": [
+        "Cheddar"
+      ],
+      "status": "Solicitado"
+    },
+    {
+      "id": "faf6",
+      "nome": "adfas",
+      "carne": "Maminha",
+      "pao": "Italiano Branco",
+      "opcionais": [
+        "Cheddar"
+      ],
+      "status": "Solicitado"
+    }
+  ]
+}
