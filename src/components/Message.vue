@@ -1,24 +1,37 @@
 <template>
-    <div class="message-container">
-        <p>{{ msg }}</p>
+    <div id="feedback" :class="tipoStatus">
+        <p>{{msg}}</p>
     </div>
 </template>
 <script>
 export default {
     name:'Message',
     props:{
-        msg: String
+        msg: String,
+        tipoStatus: String
     }
 }
 </script>
 <style scoped>
-    .message-container{
-        color: #004085;
-        background-color: #CCE5FF;
-        border: 2px solid #B8DAFF;
-        border-radius: 5px;
-        padding: 10px;
-        margin: 30px auto;
-        max-width: 400px;
+    .delete{
+        background: rgb(90, 21, 21);
+        color: white;
+    }
+    .update{
+        background: rgb(5, 47, 109);
+        color: white;
+    }
+    .create{
+        background: rgb(4, 77, 2);
+        color: white;
+    }
+    #feedback{
+        position: absolute;
+        bottom:100px;
+        left:100px;
+        padding: 15px;
+        width: 200px;
+        border-radius: 2px; 
+        z-index: 3;       
     }
 </style>

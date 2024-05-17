@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Message :msg="msg" v-show="msg"/>
+        <Message :msg="msg" :tipoStatus="tipoStatus" v-show="msg"/>
         <div>
             <form id="form-burger" @submit="createBurguer">
                 <div class="input-container">
@@ -55,7 +55,8 @@ export default {
             carne: null,
             opcionais: [],
             status: 'Solicitado',
-            msg: null
+            msg: null,
+            tipoStatus:null
         }
     },
     methods:{
@@ -96,8 +97,8 @@ export default {
             const data_burgers = await req_burgers.json();
             console.log(data_burgers)
             this.msg = `Pedido N°${data_burgers.length} realizado com sucesso!`
-
-            setTimeout(()=>this.msg="", 3000);
+            this.tipoStatus = 'create'
+            setTimeout(()=>this.msg="", 3000);  
         }
     },
     mounted(){
