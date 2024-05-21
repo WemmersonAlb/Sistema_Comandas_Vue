@@ -13,3 +13,10 @@ export default {
   }
 }
 </script>
+<style scoped>
+@media(prefers-color-scheme: dark){
+  h1{
+    color: rgb(233, 230, 230);
+  }
+}
+</style>

@@ -207,4 +207,10 @@ export default {
             margin-bottom: 5px;
         }
     }
+    @media(prefers-color-scheme: dark){
+        .pizza-table-row:nth-child(even){
+            background: #cccaca;
+            color: #222;
+        }
+    }
 </style>

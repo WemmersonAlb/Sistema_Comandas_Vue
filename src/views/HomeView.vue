@@ -22,7 +22,11 @@ h1{
   font-weight: 800;
   margin-top: 30px;
 }
-
+@media(prefers-color-scheme: dark){
+  h1{
+    color: rgb(230,230,230);
+  }
+}
 /* Mobile */
 @media(max-width:600px){
   h1{
