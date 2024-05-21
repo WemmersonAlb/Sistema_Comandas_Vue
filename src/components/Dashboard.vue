@@ -5,21 +5,33 @@
                     <tr>
                         <th class="order-id">#:</th>
                         <th>Cliente</th>
-                        <th>Pão</th>
-                        <th>Carne</th>
-                        <th>Opcionais</th>
+                        <th>Tamanho</th>
+                        <th>Massa</th>
+                        <th>Molho</th>
+                        <th>Queijo</th>
+                        <th>Borda</th>
+                        <th>Toppings</th>
+                        <th>Extras</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
-                <tbody id="buger-table-rows">
-                    <tr class="burger-table-row" v-for="d in data" :key="d.id">
+                <tbody id="pizza-table-rows">
+                    <tr class="pizza-table-row" v-for="d in data" :key="d.id" :class="d.status">
                         <td class="order-id">{{d.id}}</td>
                         <td>{{d.nome}}</td>
-                        <td>{{d.pao}}</td>
-                        <td>{{d.carne}}</td>
+                        <td>{{d.tamanho}}</td>
+                        <td>{{d.massa}}</td>
+                        <td>{{d.molho}}</td>
+                        <td>{{d.queijo}}</td>
+                        <td>{{d.borda}}</td>
                         <td>
                             <ul>
-                                <li v-for="(op, id) in d.opcionais" :key="id">{{op}}</li>
+                                <li v-for="(t, id) in d.toppings" :key="id">{{t}}</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li v-for="(e, id) in d.extras" :key="id">{{e}}</li>
                             </ul>
                         </td>
                         <td class="actions-table">
@@ -31,7 +43,7 @@
                     </tr>
                 </tbody>
             </table>
-            <Message :msg="msg" :tipoStatus="tipoStatus" v-show="msg"/>
+            <Message :msg="msg" :tipoStatus="tipoStatus" :titleMsg="titleMsg" v-show="msg"/>
         </div>
 </template>
 <script>
@@ -46,12 +58,14 @@ export default {
             data: null,
             dataStatus: null,
             msg:null,
-            tipoStatus:'update'
+            titleMsg:null,
+            tipoStatus:'update',
+            estado:null
         }
     },
     methods:{
         async getPedidosAndStatusJson(){
-            const req = await fetch("https://makeyourburger-xxqo.onrender.com/burgers");
+            const req = await fetch("https://makeyourburger-xxqo.onrender.com/pizzasSolicitadas");
             console.log(req)
             const data = await req.json();
             const reqStatus = await fetch("https://makeyourburger-xxqo.onrender.com/status");
@@ -64,7 +78,7 @@ export default {
             const option = e.target.value;
             const dataJson = JSON.stringify({status: option});
 
-            const req = await fetch(`https://makeyourburger-xxqo.onrender.com/burgers/${id}`,{
+            const req = await fetch(`https://makeyourburger-xxqo.onrender.com/pizzasSolicitadas/${id}`,{
                 method: "PATCH",
                 headers: { "Content-Type" : "application/Json" },
                 body: dataJson
@@ -72,18 +86,20 @@ export default {
 
             const res = await req.json();
             console.log(res)
-
-            this.msg = `O status pedido de ${res.nome} foi alterado com sucesso!`;
+            this.getPedidosAndStatusJson();
+            this.msg = `O pedido de ${res.nome} foi alterado para ${option}!`;
+            this.titleMsg = `Status alterado`
             this.tipoStatus = 'update';
             setTimeout(()=>this.msg = '', 4000);
         },
         async deletePedido(id){
-            const req = await fetch(`https://makeyourburger-xxqo.onrender.com/burgers/${id}`,{
+            const req = await fetch(`https://makeyourburger-xxqo.onrender.com/pizzasSolicitadas/${id}`,{
                 method:"DELETE"
             });
             const res = await req.json();
             console.log(res);
-            this.msg = `O pedido n°${id} foi deletado!`;
+            this.msg = `O pedido n°${id} foi deletado com sucesso!`;
+            this.titleMsg = `Pedido excluido`
             this.tipoStatus = 'delete';
             this.getPedidosAndStatusJson();
             setTimeout(()=>this.msg = '', 4000);
@@ -94,9 +110,12 @@ export default {
     }
 }
 </script>
-<style scoped>  
+<style scoped> 
+    .Finalizado{
+        background: rgb(134, 214, 134) !important;
+    }
     table{
-        min-width: 75%;
+        max-width: 75%;
         margin: 50px auto;
         border-collapse: collapse;
     }
@@ -109,18 +128,16 @@ export default {
         font-weight: bold;
     }
     th,td{        
-        padding: 10px 50px;
+        padding: 10px 20px;
         margin: 0;
         text-align: center;
     }
-    .actions-table{
-        display: flex;
-        justify-content: space-around;
-    }
+    
     tr{
         border-bottom: 1px solid #222;
+        font-size: 0.8rem;
     }
-    .burger-table-row:nth-child(even){
+    .pizza-table-row:nth-child(even){
         background: #cccaca;
     }
     select{
@@ -139,11 +156,20 @@ export default {
         background: transparent;
         color: #222;
     }
+    .actions-table{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
     /* Mobile devices */
     @media (max-width: 600px) {
         table {
             min-width: 600px;
-            overflow-x:auto;
+        }
+        #div-externa{
+            overflow-x: scroll;
+            max-width: 95%;
+            margin: 0 0 0 5%;
         }
 
         th, td {
@@ -158,31 +184,27 @@ export default {
 
     /* Tablets and small desktops */
     @media (min-width: 601px) and (max-width: 1024px) {
-        table {
-            min-width: 90%;
+        #div-externa{
+            overflow-x: scroll;
+            max-width: 95%;
+            margin: 0 0 0 5%;
         }
-
+        table {
+            min-width: 600px;
+        }
         th, td {
             padding: 10px 20px;
         }
-
-        .actions-table {
-            flex-direction: row;
-        }
     }
-
-    /* Desktops and larger screens */
-    @media (min-width: 1025px) {
-        table {
-            min-width: 75%;
-        }
-
-        th, td {
-            padding: 10px 50px;
-        }
-
+    @media(max-width: 1500px){
         .actions-table {
-            flex-direction: row;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        select{
+            min-width: 115px;
+            margin-bottom: 5px;
         }
     }
 </style>

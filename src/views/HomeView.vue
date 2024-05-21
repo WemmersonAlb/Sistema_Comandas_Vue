@@ -1,11 +1,11 @@
 <script>
 import Banner from '../components/Banner.vue'
-import BurgerForm from '../components/BurgerForm.vue'
+import PizzaForm from '../components/PizzaForm.vue'
 
 export default{
   components:{
     Banner,
-    BurgerForm
+    PizzaForm
   }
 }
 </script>
@@ -13,13 +13,23 @@ export default{
 <template>
   <div class="main-container">
     <Banner />
-    <h1>Monte o seu Burger</h1>
-    <BurgerForm />
+    <h1>Monte a sua pizza</h1>
+    <PizzaForm class="formulario"/>
   </div>
 </template>
 <style>
 h1{
   font-weight: 800;
   margin-top: 30px;
+}
+
+/* Mobile */
+@media(max-width:600px){
+  h1{
+    font-size: 30px!important;
+  }
+  .formulario{
+    margin: 0 30px;
+  }
 }
 </style>

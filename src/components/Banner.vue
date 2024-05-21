@@ -1,6 +1,6 @@
 <template>
     <div id="main-bunner">
-        <h1>Make Your Burger</h1>
+        <h1>Monte a sua pizza</h1>
     </div>
 </template>
 <script>
@@ -10,7 +10,7 @@ export default {
 </script>
 <style scoped>
     #main-bunner{
-        background-image: url('/img/burger.jpg');
+        background-image: url('/img/banner-pizza.jpg');
         background-position: 0 -250px;
         background-size: cover;
         height: 500px;
@@ -25,9 +25,36 @@ export default {
         background-color: #222;
         padding: 20px 40px;
     }
-    @media (min-width: 1600px){
+    /* Mobile */
+    @media (max-width: 600px) {
         #main-bunner{
-            background-position: 0 -500px;
+            height: 300px;
+            background-position: 0 0;
         }
+        h1{
+            font-size: 30px !important;
+            padding: 15px !important;
+        }
+    }
+
+    /* Tablets and small desktops */
+    @media (min-width: 601px) and (max-width: 1200px) {
+       #main-bunner{
+        height: 300px;
+       }
+       h1{
+        font-size: 45px !important;
+        padding: 15px 30px !important;
+       }
+       @media(max-width:850px){
+            #main-bunner{
+                height: 300px;
+                background-position: 0 -50px;
+            }
+            h1{
+                font-size: 30px !important;
+                padding: 15px !important;
+            }
+       }
     }
 </style>

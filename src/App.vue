@@ -11,8 +11,8 @@
     },
     data(){
       return{
-        src_img: '/img/logo.png',
-        alt_img: 'logo da hamburgueria'
+        src_img: '/img/pizza96.png',
+        alt_img: 'logo da pizzaria'
       }
     }
   }
